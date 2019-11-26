@@ -14,4 +14,13 @@ func main() {
 		fmt.Println("Index: ", i, "Value: ", num)
 	}
 
+	//Shows a count of array
+	fmt.Println("Length of the array:", len(nums))
+
+	//First element of the array
+	fmt.Println("First element:", nums[0])
+
+	//Last element of the array
+	fmt.Println("Last element:", nums[len(nums)-1])
+
 }
