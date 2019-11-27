@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+//This interface guarantee that each engine type must implement every method.
 type Engine interface {
 	Assamble()
 	Start()
@@ -13,24 +14,27 @@ type CarEngine struct{}
 type AirplaneEngine struct{}
 type SteamEngine struct{}
 
+//Car
 func (c CarEngine) Assamble() {
 	fmt.Println("Assembling components for car engine", c)
-}
-
-func (a AirplaneEngine) Assamble() {
-	fmt.Println("Assembling components for train engine", a)
-}
-
-func (s SteamEngine) Assamble() {
-	fmt.Println("Assembling components for Steam engine", s)
 }
 
 func (c CarEngine) Start() {
 	fmt.Println("Starting the car engine", c)
 }
 
+//Airplane
+func (a AirplaneEngine) Assamble() {
+	fmt.Println("Assembling components for train engine", a)
+}
+
 func (a AirplaneEngine) Start() {
 	fmt.Println("Starting the train engine", a)
+}
+
+//Steam Engine
+func (s SteamEngine) Assamble() {
+	fmt.Println("Assembling components for Steam engine", s)
 }
 
 func (s SteamEngine) Start() {
@@ -49,6 +53,7 @@ func Start(e Engine) {
 	}
 }
 
+//This is the factory where engines are creating
 func GetEngine(engineType string) Engine {
 	switch engineType {
 	case "car":
