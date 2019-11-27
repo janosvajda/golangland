@@ -23,4 +23,13 @@ func main() {
 	//Last element of the array
 	fmt.Println("Last element:", nums[len(nums)-1])
 
+	var deletedItemIndex = 3
+	//Deleting with keeping existing order. Method 1
+	nums = append(nums[:deletedItemIndex], nums[deletedItemIndex+1:]...)
+	fmt.Println("The whole array: ", nums)
+
+	//Deleting with keeping existing order. Method 2
+	nums = nums[:deletedItemIndex+copy(nums[deletedItemIndex:], nums[deletedItemIndex+1:])]
+	fmt.Println("The whole array: ", nums)
+
 }
